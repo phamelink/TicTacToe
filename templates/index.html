@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <script src="/static/javascript/index.js"></script>
+    <title></title>
+</head>
+<body>
+    <h1>Tic Tac Toe game</h1>
+    <p>{{ if .Winner}} GameOver, {{ .Winner }} won !! {{else}} Current Player {{ .CurrentPlayer}} {{end}}</p>
+    <div class="game">{{ range $i, $box := .GameState}}
+        <span class="box" onclick="sendIndex({{$i}})">{{$box.Content}}  </span>
+    {{end}}</div>
+    <button onclick="reset()">Reset Game</button>
+    <button onclick="hint()">Hint</button>
+
+
+
+</body>
+</html>
